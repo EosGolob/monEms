@@ -1,0 +1,22 @@
+/* Styles for ImageSlider */
+.ImageSlider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ImageSlider .slick-slider,
+  .ImageSlider .slick-list,
+  .ImageSlider .slick-track,
+  .ImageSlider .slick-slide,
+  .ImageSlider .slick-slide > div {
+    height: 100%;
+  }
+  
+  .ImageSlider .slick-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the entire slide */
+  }
