@@ -7,7 +7,6 @@ import image2 from '../assets/img.jpg';
 import image3 from '../assets/imge.jpg';
 // import '../components/ImageSlider.css'
 const images = [
-  
   image2,
   image3];
 
@@ -23,15 +22,26 @@ const ImageSlider = () => {
   };
 
   return (
-    <div>
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    // <div>
+    //   <Slider {...settings}>
+    //     {images.map((image, index) => (
+    //       <div key={index}>
+    //         <img src={image} alt={`Slide ${index}`} style={{ width: '700px', height: '500px' }} />
+    //       </div>
+    //     ))}
+    //   </Slider>
+
+    // </div>
+    <div style={{ width: '100%', maxWidth: '700px', margin: '0 auto' }}>
+    <Slider {...settings}>
+      {images.map((image, index) => (
+        <div key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto', maxHeight: '600px' }} />
+        </div>
+      ))}
+    </Slider>
+  </div>
+
   );
 };
 

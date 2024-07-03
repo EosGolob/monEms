@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {listEmployees,selectInterviewProcess} from './services/EmployeeServiceJWT';
-
+import { useUser } from './auth/UserContext';
 const EmployeeProcessSelection = () => {
+    const { user } = useUser(); // Access the logged-in user info
+
     const [employees, setEmployees] = useState([]);
     // const [selectedProcess, setSelectedProcess] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -71,9 +73,10 @@ const EmployeeProcessSelection = () => {
                 processName: employee.selectedProcess,
                 interviewDate: interviewDate,
                 interviewTime: interviewTime,
-                status: "Scheduled"
+                status: "Scheduled",
+                scheduledBy: user ? user.name : 'Unknown' // Add the logged-in user's name
+
             };
-        
             // Call the selectInterviewProcess API function
             selectInterviewProcess(employeeId, interviewData)
                 .then(response => {
